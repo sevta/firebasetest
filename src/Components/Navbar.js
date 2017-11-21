@@ -15,7 +15,7 @@ export default class Navbar extends Component {
 					<span className="line"></span>
 					<span className="line"></span>
 				</div>
-				<button className="btn btn-info btn-sm btncenter" onClick={this.logout.bind(this)}>Logout</button>
+				<button className="btn btn-success btn-sm btncenter" onClick={this.logout.bind(this)}>Logout</button>
 			</div>
 		)
 	}

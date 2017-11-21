@@ -1,6 +1,7 @@
 import React , { Component } from 'react'
 import { base , app , gmail , db } from '../base'
-import './Index.css'
+// import './Index.css'
+import './Home.css'
 import { Redirect , Link } from 'react-router-dom'
 import Navbar from '../Components/Navbar'
 
@@ -12,11 +13,6 @@ export default class Home extends Component {
 			user: null
 		}
 		this.logout = this.logout.bind(this)
-		this.createChatRoom = this.createChatRoom.bind(this)
-	}
-
-	createChatRoom = () => {
-		console.log('create')
 	}
 
 	logout = () => {
@@ -49,21 +45,26 @@ export default class Home extends Component {
 		return (
 			<div className="container-home">
 				<Navbar logout={this.logout.bind(this)}/>
-				{user ? (
-					<div className='container-profile'>
-						<div className="headers">
-							<img src={user.photoURL} alt=""/>
+				<div className="header-h">
+					<div className="title-h">FireTest</div>
+				</div>
+				<div className="section-h">
+					<Link to='/globalchat' className='section'>
+						<div className='background-1'>
+							<p>Global Chat</p>
 						</div>
-						<p>{user.displayName}</p>
-						<p>{user.email}</p>
-					</div>
-				) : null}
-				<Link to='/globalchat' className="btn btn-warning btn-md_two" style={{
-					width: '100%' , position: 'absolute' , bottom: 36 , borderRadius: 0
-				}}>Global Chat Room</Link>
-				<Link to='/createchat' className="btn btn-info btn-md" style={{
-					width: '100%' , position: 'absolute' , bottom: 0 , borderRadius: 0
-				}} onClick={this.createChatRoom}>Create Chat Room</Link>
+					</Link>
+					<Link to='/createchat' className="section">
+						<div className="background-2">
+							<p>Group</p>
+						</div>
+					</Link>
+					<Link to='/profile' className="section">
+						<div className="background-3">
+							<p>Profile</p>
+						</div>
+					</Link>
+				</div>
 			</div>
 		)
 	}

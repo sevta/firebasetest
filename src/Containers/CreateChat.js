@@ -49,11 +49,12 @@ export default class CreateChat extends Component {
 						<div className="col-md-12">
 							<form>
 								<fieldset>
+									<h2 style={{marginBottom: 15 , fontSize: '2.2rem'}}>Create Room</h2>
 									<div className="form-group">
-										<input type="text" className="form-control" name='title' placeholder='title'/>
+										<input type="text" className="form-control form-create-room" name='title' placeholder='title'/>
 									</div>
+									<hr style={{marginTop: 45 , width: '50%' , borderTop: 'transparent'}}/>
 									<div className="form-group">
-										<p>add Participant</p>
 										{ users.length ? (
 											<ul className='userlist'>
 												{ users.map((user , i) => (

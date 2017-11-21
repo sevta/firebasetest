@@ -1,0 +1,94 @@
+.navbar-home {
+  background: transparent !important;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  z-index: 10; }
+
+.container-home .header-h {
+  width: 100%;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: url("https://wallpaperscraft.com/image/mountains_lake_tops_trees_118251_800x600.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative; }
+  .container-home .header-h::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 0; }
+  .container-home .header-h .title-h {
+    font-size: 30px;
+    color: white;
+    font-weight: 600;
+    z-index: 1; }
+
+.container-home .section-h {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+  .container-home .section-h .section {
+    -webkit-box-flex: 40%;
+        -ms-flex: 40%;
+            flex: 40%;
+    height: 170px; }
+    .container-home .section-h .section .background-1,
+    .container-home .section-h .section .background-2,
+    .container-home .section-h .section .background-3 {
+      width: 100%;
+      height: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      position: relative; }
+      .container-home .section-h .section .background-1::before,
+      .container-home .section-h .section .background-2::before,
+      .container-home .section-h .section .background-3::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.2);
+        z-index: 0; }
+      .container-home .section-h .section .background-1 p,
+      .container-home .section-h .section .background-2 p,
+      .container-home .section-h .section .background-3 p {
+        z-index: 1;
+        color: white;
+        font-size: 21px; }
+    .container-home .section-h .section .background-1 {
+      background: url("https://wallpaperscraft.com/image/hand_ring_leaves_118252_800x600.jpg") no-repeat;
+      background-size: cover;
+      background-position: center; }
+    .container-home .section-h .section .background-2 {
+      background: url("https://wallpaperscraft.com/image/exit_apparatus_broken_wires_118233_800x600.jpg") no-repeat;
+      background-size: cover;
+      background-position: center; }
+    .container-home .section-h .section .background-3 {
+      background: url("https://wallpaperscraft.com/image/foliage_feet_autumn_fallen_118219_800x600.jpg") no-repeat;
+      background-size: cover;
+      background-position: center; }

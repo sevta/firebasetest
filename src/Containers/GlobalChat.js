@@ -69,7 +69,7 @@ export default class CreateChat extends Component {
 						</div>
 						<div className="message">
 							<p>{user.message}</p>
-							<div className="username">{user.name}</div>
+							{/*<div className="username">{user.name}</div>*/}
 						</div>
 					</div>
 				)) }
@@ -77,7 +77,7 @@ export default class CreateChat extends Component {
 				<div className="container-send">
 					<form onSubmit={this.send}>
 						<input type="text" className="form-control" name='message' value={message} placeholder='Message...' onChange={this.onChange}/>
-						<input type="submit" className="btn btn-info btn-send" onClick={this.send}/>
+						<input type="submit" className="btn btn-success btn-send" onClick={this.send}/>
 					</form>
 				</div>
 			</div>
