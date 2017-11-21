@@ -6,6 +6,7 @@ import Home from './Containers/Home'
 import Profile from './Containers/Profile'
 import Containers from './Containers/Containers'
 import CreateChat from './Containers/CreateChat'
+import GlobalChat from './Containers/GlobalChat'
 
 export default class Routers extends Component {
 	constructor(props) {
@@ -34,6 +35,7 @@ export default class Routers extends Component {
 				<Route path='/profile' component={Profile} />
 				<Route path='/login' component={Login} />
 				<Route path='/createchat' component={CreateChat} />
+				<Route path='/globalchat' component={GlobalChat} />
 			</Switch>
 		)
 	}

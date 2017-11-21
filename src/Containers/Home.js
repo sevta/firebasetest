@@ -58,6 +58,9 @@ export default class Home extends Component {
 						<p>{user.email}</p>
 					</div>
 				) : null}
+				<Link to='/globalchat' className="btn btn-warning btn-md_two" style={{
+					width: '100%' , position: 'absolute' , bottom: 36 , borderRadius: 0
+				}}>Global Chat Room</Link>
 				<Link to='/createchat' className="btn btn-info btn-md" style={{
 					width: '100%' , position: 'absolute' , bottom: 0 , borderRadius: 0
 				}} onClick={this.createChatRoom}>Create Chat Room</Link>

@@ -41,7 +41,10 @@ export default class Login extends Component {
 		return (
 			<div className="container-wrapper">
 				<div className="login-from">
-					<button className="btn btn-info" onClick={this.login}>Login With Gmail</button>
+					<div className="title">
+						TesterFire
+					</div>
+					<button className="btn btn-primary btn-login" onClick={this.login}>Login With Gmail</button>
 				</div>
 			</div>
 		)
