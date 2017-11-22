@@ -10,15 +10,71 @@ export default class CreateChat extends Component {
 		this.state = {
 			redirect: null,
 			users: [],
+			user: '',
+			check: false,
 			participant: [],
 			title: ''
 		}
+		this.checkPerson = this.checkPerson.bind(this)
+		this.setTitle = this.setTitle.bind(this)
 	}
 
-	addParticipant = user => {
-		this.state.participant.push(user.key)
-		this.setState({ participant: this.state.participant })
-		console.log(this.state)
+	setTitle = e => {
+		this.setState({
+			[e.target.name]: e.target.value
+		})
+	}
+
+
+	// FIX add participant bug
+	// ----------------------------------
+
+	addParticipant(user , e) {
+		console.log(user , e.target)
+		const { participant , check } = this.state
+		let index
+		let participant_i
+		let tmp = []
+		let obj = {
+			uid: user.key,
+			avatar: user.avatar,
+			name: user.name
+		}
+		if (e.target.checked) {
+			this.setState({ check: !check })
+			participant.push(obj)
+			this.setState({ participant: participant })
+			console.log(participant)
+		} else {
+			let indexOfParticipant
+			for (let i = 0; i < participant.length; i++) {
+				indexOfParticipant = participant[i]
+				console.log(participant.length)
+			}
+			index = participant.indexOf(indexOfParticipant)
+			participant.splice(index , 1)
+			this.setState({ participant: participant })
+			console.log(participant)
+		}	
+		this.setState({ participant: participant })
+	}
+
+	checkPerson = () => {
+		const { users , user } = this.state
+		const id_users = users.map(id_users => id_users.key)
+		const id_person = user.uid
+		for ( let i = 0; i < id_users.length; i++ ) {
+			console.log(id_users[i])
+			if ( id_person === id_users[i] ) {
+				const index = id_users.indexOf(id_person)
+				users.splice(index , 1)
+				this.setState({users})
+			}
+		}
+	}
+
+	componentDidUpdate() {
+		this.checkPerson()
 	}
 
 	componentWillMount() {
@@ -32,12 +88,14 @@ export default class CreateChat extends Component {
 		base.fetch('users' , {
 			context: this,
 			asArray: true,
-		}).then(data => this.setState({users: data}))
-			.catch(err => console.log(err))
+		}).then(data => {
+			this.setState({users: data})
+			// this.checkPerson()
+		}).catch(err => console.log(err))
 	}
 
 	render() {
-		const { users } = this.state
+		const { users , participant , title } = this.state
 		if (this.state.redirect === true) {
 			return <Redirect to='/login' />
 		}
@@ -50,15 +108,41 @@ export default class CreateChat extends Component {
 							<form>
 								<fieldset>
 									<h2 style={{marginBottom: 15 , fontSize: '2.2rem'}}>Create Room</h2>
-									<div className="form-group">
-										<input type="text" className="form-control form-create-room" name='title' placeholder='title'/>
-									</div>
+									{ participant.length ? (
+										<div>
+											<div className="form-group">
+												<input type="text" className="form-control form-create-room" name='title' placeholder='title' onChange={this.setTitle}/>
+											</div>
+											<div className="container-participant">
+
+
+												{/* FIX title overflow */}
+
+												<h3>{ title }</h3>
+												<div className='participant-list'>
+													{ participant.map((user , i) => (
+														<div className='participant-img'>
+															<img src={user.avatar} alt=""/>
+														</div>
+													)) }
+												</div>
+											</div>
+										</div>
+									) : null }
 									<hr style={{marginTop: 45 , width: '50%' , borderTop: 'transparent'}}/>
 									<div className="form-group">
 										{ users.length ? (
 											<ul className='userlist'>
 												{ users.map((user , i) => (
-													<li className='userlist-block' onClick={this.addParticipant.bind(this , user)}>
+													<li className='userlist-block'>
+
+
+														{/* FIX if people check color changed */}
+
+														<input type="checkbox" className="form-control check-participant" 
+															style={{zIndex: 10}}
+															onChange={this.addParticipant.bind(this , user)}
+														/>
 														<div className="useravatar">
 															<img src={user.avatar} alt=""/>
 														</div>

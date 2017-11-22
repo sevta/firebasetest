@@ -54,7 +54,7 @@ export default class Home extends Component {
 							<p>Global Chat</p>
 						</div>
 					</Link>
-					<Link to='/createchat' className="section">
+					<Link to='/group' className="section">
 						<div className="background-2">
 							<p>Group</p>
 						</div>

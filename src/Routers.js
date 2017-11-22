@@ -7,6 +7,7 @@ import Profile from './Containers/Profile'
 import Containers from './Containers/Containers'
 import CreateChat from './Containers/CreateChat'
 import GlobalChat from './Containers/GlobalChat'
+import Group from './Containers/Group/Group'
 
 export default class Routers extends Component {
 	constructor(props) {
@@ -34,8 +35,9 @@ export default class Routers extends Component {
 				<Route exact path='/' component={Home} />
 				<Route path='/profile' component={Profile} />
 				<Route path='/login' component={Login} />
-				<Route path='/createchat' component={CreateChat} />
+				<Route path='/group' component={Group} />
 				<Route path='/globalchat' component={GlobalChat} />
+				<Route path='/createchat' component={CreateChat} />
 			</Switch>
 		)
 	}
