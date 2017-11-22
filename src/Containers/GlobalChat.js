@@ -53,6 +53,19 @@ export default class CreateChat extends Component {
 		});
 	}
 
+	componentDidUpdate() {
+		const { global_chat } = this.state
+		global_chat.map((usertime , i) => {
+			console.log(usertime.time)
+			const date = new Date()
+			const dateISO = date.toISOString()
+			const dateString = date.toDateString()
+			const dateDivide = (date.getTime() / 100) >> 0
+			console.log(dateDivide)
+
+		})
+	}
+
 	render() {
 		const { users , global_chat , message } = this.state
 		if (this.state.redirect === true) {

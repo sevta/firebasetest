@@ -237,7 +237,7 @@
         -o-object-position: center;
            object-position: center; }
     .container-chat .list-chat .message {
-      padding: 5px 0px;
+      padding: 8px 0px;
       padding-left: 20px;
       font-weight: 400;
       width: 180px;
@@ -256,10 +256,12 @@
               flex-direction: column;
       border: solid 2px whitesmoke;
       position: relative;
-      margin-left: 10px; }
+      margin-left: 10px;
+      background: #ff50d1; }
       .container-chat .list-chat .message p {
         margin: 0;
-        font-size: 15px; }
+        font-size: 15px;
+        color: white; }
     .container-chat .list-chat .username {
       position: absolute;
       bottom: 0px;
