@@ -27,6 +27,7 @@ export default class CreateChat extends Component {
 
 
 	// FIX add participant bug
+	// solved by: Bintang
 	// ----------------------------------
 
 	addParticipant(user , e) {
@@ -34,29 +35,28 @@ export default class CreateChat extends Component {
 		const { participant , check } = this.state
 		let index
 		let participant_i
-		let tmp = []
 		let obj = {
 			uid: user.key,
 			avatar: user.avatar,
 			name: user.name
 		}
-		if (e.target.checked) {
-			this.setState({ check: !check })
-			participant.push(obj)
-			this.setState({ participant: participant })
-			console.log(participant)
-		} else {
-			let indexOfParticipant
-			for (let i = 0; i < participant.length; i++) {
-				indexOfParticipant = participant[i]
-				console.log(participant.length)
+		this.setState({ check: !check })
+		index = -1
+		let current_index = -1
+		participant.forEach(current_part => {
+			current_index++
+			console.log(current_part.name)
+			if (obj.name === current_part.name) {
+				index = current_index
 			}
-			index = participant.indexOf(indexOfParticipant)
-			participant.splice(index , 1)
-			this.setState({ participant: participant })
-			console.log(participant)
-		}	
+		})
+		if (index < 0) {
+			participant.push(obj)
+		} else {
+			participant.splice(index , 1)	
+		}
 		this.setState({ participant: participant })
+		console.log(participant)
 	}
 
 	checkPerson = () => {
