@@ -30,8 +30,7 @@ export default class CreateChat extends Component {
 	// solved by: Bintang
 	// ----------------------------------
 
-	addParticipant(user , e) {
-		console.log(user , e.target)
+	addParticipant(user) {
 		const { participant , check } = this.state
 		let index
 		let participant_i
@@ -45,7 +44,6 @@ export default class CreateChat extends Component {
 		let current_index = -1
 		participant.forEach(current_part => {
 			current_index++
-			console.log(current_part.name)
 			if (obj.name === current_part.name) {
 				index = current_index
 			}
@@ -56,7 +54,11 @@ export default class CreateChat extends Component {
 			participant.splice(index , 1)	
 		}
 		this.setState({ participant: participant })
-		console.log(participant)
+		base.post('chat_group' , {
+			data: {
+				group: participant
+			}
+		})
 	}
 
 	checkPerson = () => {
@@ -90,7 +92,6 @@ export default class CreateChat extends Component {
 			asArray: true,
 		}).then(data => {
 			this.setState({users: data})
-			// this.checkPerson()
 		}).catch(err => console.log(err))
 	}
 

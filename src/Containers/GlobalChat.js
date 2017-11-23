@@ -41,9 +41,9 @@ export default class CreateChat extends Component {
 	componentWillMount() {
 		app.auth().onAuthStateChanged(user => {
 			if (user) {
-				this.setState({redirect: false , user: user} , () => console.log(this.state))
+				this.setState({redirect: false , user: user})
 			} else {
-				this.setState({redirect: true} , () => console.log(this.state))
+				this.setState({redirect: true})
 			}
 		})
 		base.syncState('global_chat' , {
@@ -61,8 +61,6 @@ export default class CreateChat extends Component {
 			const dateISO = date.toISOString()
 			const dateString = date.toDateString()
 			const dateDivide = (date.getTime() / 100) >> 0
-			console.log(dateDivide)
-
 		})
 	}
 

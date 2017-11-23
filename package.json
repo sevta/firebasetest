@@ -13,7 +13,8 @@
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "^1.0.17"
+    "react-scripts": "^1.0.17",
+    "react-spinkit": "^3.0.0"
   },
   "homepage": "https://sevta.github.io/firebasetest",
   "scripts": {

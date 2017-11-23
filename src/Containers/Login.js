@@ -2,22 +2,25 @@ import React , { Component } from 'react'
 import { base , app , gmail } from '../base'
 import './Index.css'
 import { Redirect } from 'react-router-dom'
+import Spinner from 'react-spinkit'
 
 export default class Login extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			redirect: null
+			redirect: null,
+			login: false
 		}
 		this.login = this.login.bind(this)
 	}
 
 	componentWillMount() {
 		app.auth().onAuthStateChanged(user => {
+			this.setState({ login: true })
 			if (user) {
-				this.setState({redirect: true} , () => console.log(this.state))
+				this.setState({redirect: true , loading: false})
 			} else {
-				this.setState({redirect: false} , () => console.log(this.state))
+				this.setState({redirect: false , loading: false})
 			}
 		})
 	}
@@ -37,6 +40,9 @@ export default class Login extends Component {
 	render() {
 		if (this.state.redirect === true ) {
 			return <Redirect to='/' />
+		}
+		if (this.state.loading === true) {
+			return <p>Loading...</p>
 		}
 		return (
 			<div className="container-wrapper">

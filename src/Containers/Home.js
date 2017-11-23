@@ -31,9 +31,9 @@ export default class Home extends Component {
 						avatar: user.photoURL
 					}
 				})
-				this.setState({redirect: false , user: user} , () => console.log(this.state))
+				this.setState({redirect: false , user: user})
 			} else {
-				this.setState({redirect: true} , () => console.log(this.state))
+				this.setState({redirect: true})
 			}
 		})
 	}
