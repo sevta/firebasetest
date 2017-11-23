@@ -17,6 +17,41 @@ export default class CreateChat extends Component {
 		}
 		this.checkPerson = this.checkPerson.bind(this)
 		this.setTitle = this.setTitle.bind(this)
+		this.createRoom = this.createRoom.bind(this)
+	}
+
+
+	// FIX create room pls
+	// -----------------------------
+
+	createRoom = e => {
+		e.preventDefault()
+		base.push('chat_group' , {
+			data: {
+				title: this.state.title,
+				pic: null,
+				group: this.state.participant,
+				chat: []
+			}
+		})
+		let pUID
+		let uUID
+		let participantUid = this.state.participant.map(users => users.uid) 
+		let usersId = this.state.users.map((users , i) => users.key )
+		for (let i = 0; i < participantUid.length; i++) {
+			pUID = participantUid[i]
+			for (let i = 0; i < usersId.length; i++) {
+				uUID = usersId[i]
+				if ( pUID === uUID ) {
+					alert('still develop')
+					// base.post(`users/${uUID}` , {
+					// 	data: {
+					// 		room: 1
+					// 	}
+					// })
+				}
+			}
+		}
 	}
 
 	setTitle = e => {
@@ -54,11 +89,6 @@ export default class CreateChat extends Component {
 			participant.splice(index , 1)	
 		}
 		this.setState({ participant: participant })
-		base.post('chat_group' , {
-			data: {
-				group: participant
-			}
-		})
 	}
 
 	checkPerson = () => {
@@ -158,6 +188,14 @@ export default class CreateChat extends Component {
 						</div>
 					</div>
 				</div>
+				{ participant.length ? (
+					<a href=""
+						className="btn btn-success btn-sm btn-create"
+						onClick={this.createRoom}
+					>
+					Create..
+					 </a>
+				) : null }
 			</div>
 		)
 	}
